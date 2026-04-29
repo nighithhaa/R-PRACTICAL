@@ -1,0 +1,18 @@
+install.packages("tidyr")
+library(tidyr)
+student_df<-data.frame(id=c(1,2,3,4,5,6,7,8,9,10),
+                       names=c("Alex","Riya","John","Sara","Alex","David","Maya","Arun","Neha","Kiran"),
+                       age=c(20,21,19,22,23,24,20,21,22,23),
+                       department=c("CS","IT","CS","EC","TT","CS","EC","IT","CS","EC"),
+                       math=c(85,90,78,88,91,84,79,92,87,89),
+                       science=c(88,92,80,85,90,86,82,91,89,97),
+                       english=c(75,80,70,78,85,82,77,88,84,86)
+)
+print(student_df)
+long_data<-pivot_longer(
+  student_df,
+  cols=c(math,science,english),
+  names_to="subject",
+  values_to="marks"
+)
+print(long_data)
